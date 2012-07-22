@@ -58,26 +58,16 @@ void setup(){
 }
 
 void loop(){
-     
-  if (Serial.available() > 0){
-    sleepCounter=1000; // reset the sleep counter
-    if (serialMode == SERIALCMDMODE)
-      readSerialCmd();
-    else
-      readSerialData();
-  }
 
-  if ( digitalRead(GDO0) == HIGH ) {
-      writeSerialData();
-      sleepCounter++; // delay sleep
+  //copy the digital value on PD2 to PD5
+  pinMode(2, INPUT);  //input on PD2
+  pinMode(19, OUTPUT); //output on PD5
+
+  int val;
+  while(1) {
+    val = digitalRead(2);
+    digitalWrite(19, val);
   }
-  sleepCounter--;
-  
-  // check if we can go to sleep again, going into low power too early will result in lost data in the CCx fifo.
-  if ((sleepCounter == 0) && (Config.get(CONFIG_RFBEE_MODE) == LOWPOWER_MODE))
-    DEBUGPRINT("low power on")
-    lowPowerOn();
-    DEBUGPRINT("woke up")
 }
 
 
@@ -89,8 +79,8 @@ void rfBeeInit(){
 
     serialMode=SERIALDATAMODE;
     sleepCounter=0;
-    
-    attachInterrupt(0, ISRVreceiveData, RISING);  //GD00 is located on pin 2, which results in INT 0
+
+    //attachInterrupt(0, ISRVreceiveData, RISING);  //GD00 is located on pin 2, which results in INT 0
 
     pinMode(GDO0,INPUT);// used for polling the RF received data
 
