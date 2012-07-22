@@ -25,7 +25,7 @@
 #include <avr/pgmspace.h>
 
 
-#define CCX_NR_OF_REGISTERS 35
+#define CCX_NR_OF_REGISTERS 36
 // list the registers in the same order as CCxRegisterSettings
 // stored in progmem to save on RAM
 static const byte CCx_registers[CCX_NR_OF_REGISTERS] PROGMEM ={
@@ -59,6 +59,7 @@ static const byte CCx_registers[CCX_NR_OF_REGISTERS] PROGMEM ={
   CCx_TEST0	,
   CCx_FIFOTHR	,
   CCx_IOCFG2	,
+  CCx_IOCFG1    ,
   CCx_IOCFG0D	,
   CCx_PKTCTRL1	,
   CCx_PKTCTRL0	,
@@ -102,6 +103,7 @@ static const byte CCx_registerSettings[CCX_NR_OF_CONFIGS][CCX_NR_OF_REGISTERS] P
     0x09,   // TEST0     Various test settings.
     0x07,   // FIFOTHR   RXFIFO and TXFIFO thresholds.
     0x0D,   // IOCFG2    GDO2 output pin configuration.0x09-CCA mode, 0x2E-High impedance
+    0x0D,   // IOCFG1
     0x0E,   // IOCFG0D   GDO0 output pin configuration. Refer to SmartRF?Studio User Manual for detailed pseudo register explanation.
     0x00,   // PKTCTRL1  Packet automation control. bit2 = 1 append RSSI and LQI ,bit2 = 0 not append
     0x32,   // PKTCTRL0  Packet automation control.
