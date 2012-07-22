@@ -36,14 +36,14 @@
 
 
 void setup(){
-    if (Config.initialized() != OK) 
+    if (Config.initialized() != OK)
     {
       Serial.begin(9600);
       Serial.println("Initializing config"); 
 #ifdef FACTORY_SELFTEST
-      if ( TestIO() != OK ) 
+      if ( TestIO() != OK )
         return;
-#endif 
+#endif
       Config.reset();
     }
     setUartBaudRate();
@@ -77,10 +77,10 @@ void loop(){
 
 void rfBeeInit(){
     DEBUGPRINT()
-    
+
     CCx.PowerOnStartUp();
     setCCxConfig();
-   
+
     serialMode=SERIALDATAMODE;
     sleepCounter=0;
     
