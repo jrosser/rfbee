@@ -338,10 +338,10 @@ int setCCxConfig(){
   CCx.Setup(cfg);  
   CCx.ReadSetup();
   // and restore the config settings
-  setMyAddress();
-  setAddressCheck();
+  //setMyAddress();
+  //setAddressCheck();
   setPowerAmplifier();
-  setRFBeeMode();
+  //setRFBeeMode();
   return OK;
 }
 
