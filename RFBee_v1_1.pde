@@ -38,15 +38,15 @@
 void setup(){
     if (Config.initialized() != OK)
     {
-      Serial.begin(9600);
-      Serial.println("Initializing config"); 
+      Serial.begin(38400);
+      Serial.println("Initializing config");
 #ifdef FACTORY_SELFTEST
       if ( TestIO() != OK )
         return;
 #endif
       Config.reset();
     }
-    setUartBaudRate();
+    Serial.begin(38400);
     rfBeeInit();
     Serial.println("ok");
 }
