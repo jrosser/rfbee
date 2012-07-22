@@ -18,8 +18,8 @@
 
 
 #define FIRMWAREVERSION 11 // 1.1  , version number needs to fit in byte (0~255) to be able to store it into config
-//#define FACTORY_SELFTEST
-//#define DEBUG 
+//#define FACTORY_SELFTES
+#define DEBUG
 
 
 #include "debug.h"
