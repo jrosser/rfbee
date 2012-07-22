@@ -336,7 +336,7 @@ int setCCxConfig(){
   // load the appropriate config table
   byte cfg=Config.get(CONFIG_CONFIG_ID);
   CCx.Setup(cfg);  
-  //CCx.ReadSetup();
+  CCx.ReadSetup();
   // and restore the config settings
   setMyAddress();
   setAddressCheck();
