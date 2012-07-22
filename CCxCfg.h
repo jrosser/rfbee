@@ -110,7 +110,6 @@ static const byte CCx_registerSettings[CCX_NR_OF_CONFIGS][CCX_NR_OF_REGISTERS] P
     0x00,   // ADDR      Device address.
     CCx_PACKT_LEN,    // PKTLEN    Packet length.
   }, 
-
 };
 
 // PATABLE (dBm output power)
