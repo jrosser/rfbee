@@ -48,7 +48,13 @@ void setup(){
     }
     Serial.begin(38400);
     rfBeeInit();
-    Serial.println("ok");
+
+    Serial.println("Receive mode...");
+    CCx.Strobe(CCx_SIDLE);
+    delay(1);
+    CCx.Write(CCx_MCSM1 ,   0x0C );//RXOFF_MODE->stay in RX
+    CCx.Strobe(CCx_SFRX);
+    CCx.Strobe(CCx_SRX);
 }
 
 void loop(){
